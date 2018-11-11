@@ -1,16 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-setTimeout(() => {
-  document.body.appendChild(document.createTextNode('wtf'))
-}, 1000)
-function Example() {
-  // Declare a new state variable, which we'll call "count"
+const useCounter = () => {
   const [count, setCount] = useState(0)
+  const inc = () => setCount(count + 1)
+  return [count, inc]
+}
+
+function Example() {
+  const [count, inc] = useCounter()
+  useEffect(() => {
+    document.title = `You clicked ${count} times`
+    return () => {}
+  })
 
   return (
     <div>
       <p>You are {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
+      <button onClick={() => inc()}>Click me</button>
     </div>
   )
 }
