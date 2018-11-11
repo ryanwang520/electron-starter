@@ -10,7 +10,7 @@ function createWindow() {
   // Create the browser window.
   win = new BrowserWindow({ width: 800, height: 600 })
   if (isDev) {
-    win.loadURL('http://localhost:1234')
+    win.loadFile('dist/index.html')
   } else {
     win.loadFile('dist/index.html')
   }
