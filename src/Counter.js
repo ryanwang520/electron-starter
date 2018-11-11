@@ -9,7 +9,7 @@ function Example() {
 
   return (
     <div>
-      <p>You {count} times</p>
+      <p>You are {count} times</p>
       <button onClick={() => setCount(count + 1)}>Click me</button>
     </div>
   )
